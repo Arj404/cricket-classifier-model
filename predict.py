@@ -11,7 +11,7 @@ to_pil = transforms.ToPILImage()
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model=torch.load('./cricket-model-3.pth',map_location={'cuda:0': 'cpu'})
+model=torch.load('./cricket-model-5.pth',map_location={'cuda:0': 'cpu'})
 
 
 
@@ -21,7 +21,11 @@ def predict_image(image):
 	image_tensor = image_tensor.unsqueeze_(0)
 	input = Variable(image_tensor)
 	output = model(input)
+	print(output)
 	index = output.data.cpu().numpy().argmax()
 	return index
 
 
+
+frame = cv2.imread('./1201.jpg',cv2.IMREAD_UNCHANGED)
+print(predict_image(frame))
