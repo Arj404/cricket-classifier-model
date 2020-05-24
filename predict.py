@@ -45,6 +45,6 @@ def predict_image(image):
 	return index
 
 
-frame = Image.open('./93.jpg')
+frame = Image.open('./1201.jpg')
 predict_image(frame)
 
