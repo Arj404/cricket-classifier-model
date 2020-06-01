@@ -84,7 +84,7 @@ def RunOcr(image_path):
 	Batsman1 = ocr(image_path,496,332,520,472)
 	Bat1 = ''
 	if Batsman1:
-		if len(Batsman1) == 2:
+		if len(Batsman1) > 1:
 			if Batsman1[1]:
 				if Batsman1[1].isalpha():
 					Bat1 = Batsman1[1]
@@ -93,7 +93,7 @@ def RunOcr(image_path):
 	Batsman2 = ocr(image_path,496,500,520,650)
 	Bat2 = ''
 	if Batsman2:
-		if len(Batsman2) == 2:
+		if len(Batsman2) > 1:
 			if Batsman2[1]:
 				if Batsman2[1].isalpha():
 					Bat2 = Batsman2[1]
@@ -107,7 +107,7 @@ def RunOcr(image_path):
 	return Score,Wicket,Overs,Bat1,Bat2,current
 
 
-image_path = './Screen5.png'
+image_path = './Screen1.png'
 Score,Wicket,Overs,Bat1,Bat2,current = RunOcr(image_path)
 
 print(Score)
